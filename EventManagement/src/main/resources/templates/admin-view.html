@@ -1,0 +1,106 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin-layout}">
+<body class="d-flex flex-column h-100">
+<main class="flex-shrink-0">
+
+    <section layout:fragment="body" class="py-5">
+        <div class="container">
+            <div class="text-center my-5">
+                <h1 class="fw-bolder" th:text="${event.name}"></h1>
+                <p class="lead mb-0">Welcome to the view page of this Event!</p>
+            </div>
+        </div>
+        </header>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="card mb-4">
+                        <a href="#!"><img class="card-img-top" th:src="${event.photoUrl}" alt="..." /></a>
+                        <div class="card-body">
+                            <h2 class="card-title">About the club...</h2>
+                            <p class="card-text" th:text="${event.content}"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+
+                    <div class="card mb-4">
+                        <div class="card-header">Our Purpose</div>
+                        <div class="card-body">We want to share happiness with you. Be with us and see your dreams in real life!!!</div>
+                    </div>
+
+                    <div class="card mb-4">
+                        <div class="card-header">Event Cost ($)</div>
+                        <div class="card-body">
+                            <div class="normal-text" th:text="${event.cost}"></div>
+                        </div>
+                    </div>
+
+                    <div class="card mb-4">
+                        <div class="card-header"><strong>Current Event Cost with a discount($)</strong></div>
+                        <div class="card-body">
+                            <div class="normal-text" th:text="${event.cost}-${discount.amount}*${event.cost}/100"></div>
+<!--                            <a th:href="@{/orders/{eventId}/new(eventId=${event.id})}"><strong>Order now</strong></a>-->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-4">
+                    <!-- Blog post-->
+                    <div class="card mb-4">
+                        <a href="#!"><img class="card-img-top" src="https://img.freepik.com/free-photo/shine-wedding-altar-newlyweds-stands-backyard-decorated-with-balloons_8353-8415.jpg?size=626&ext=jpg&ga=GA1.1.1098225928.1702551469&semt=sph" alt="..." /></a>
+                        <div class="card-body">
+                            <div class="small text-muted">September 1, 2023</div>
+                            <h2 class="card-title h4">Post Title</h2>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.</p>
+                            <a class="btn btn-primary" href="#!">Read more →</a>
+                        </div>
+                    </div>
+                    <!-- Blog post-->
+                    <div class="card mb-4">
+                        <a href="#!"><img class="card-img-top" src="https://img.freepik.com/free-photo/wedding-table-desserts_1303-10520.jpg?size=626&ext=jpg&ga=GA1.1.1098225928.1702551469&semt=sph" alt="..." /></a>
+                        <div class="card-body">
+                            <div class="small text-muted">January 10, 2023</div>
+                            <h2 class="card-title h4">Post Title</h2>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.</p>
+                            <a class="btn btn-primary" href="#!">Read more →</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <!-- Blog post-->
+                    <div class="card mb-4">
+                        <a href="#!"><img class="card-img-top" src="https://img.freepik.com/free-photo/bunch-flowers-leaves-table_1304-4187.jpg?size=626&ext=jpg&ga=GA1.1.1098225928.1702551469&semt=sph" alt="..." /></a>
+                        <div class="card-body">
+                            <div class="small text-muted">March 21, 2023</div>
+                            <h2 class="card-title h4">Post Title</h2>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.</p>
+                            <a class="btn btn-primary" href="#!">Read more →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <!-- Blog post-->
+                    <div class="card mb-4">
+                        <a href="#!"><img class="card-img-top" src="https://img.freepik.com/free-photo/shiny-glassware-cutlery-stand-dinner-table-decorated_8353-660.jpg?size=626&ext=jpg&ga=GA1.2.1098225928.1702551469&semt=sph" alt="..." /></a>
+                        <div class="card-body">
+                            <div class="small text-muted">March 8, 2023</div>
+                            <h2 class="card-title h4">Post Title</h2>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.</p>
+                            <a class="btn btn-primary" href="#!">Read more →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+</body>
+</html>

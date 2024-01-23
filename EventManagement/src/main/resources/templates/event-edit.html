@@ -1,0 +1,78 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin-layout}">
+<head>
+    <title>Event Editing</title>
+</head>
+<body class="d-flex flex-column h-100">
+<main class="flex-shrink-0">
+
+    <section layout:fragment="body" class="py-5">
+        <div class="container mt-4">
+            <form role="form" method="post" th:action="@{/admin-events/{eventId}/edit(eventId=${events.id})}" th:object="${events}">
+                <input type="hidden" th:field="*{id}">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="name">Event Name</label>
+                        <input
+                                type="text"
+                                class="form-control"
+                                id="name"
+                                name="name"
+                                th:field="*{name}"
+                                placeholder="Name">
+                        <p th:if="${#fields.hasErrors('name')}" class="text-danger" th:errors="*{name}"></p>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="briefly">Briefly about the event</label>
+                        <input
+                                type="text"
+                                class="form-control"
+                                id="briefly"
+                                name="briefly"
+                                th:field="*{briefly}"
+                                placeholder="Briefly">
+                        <p th:if="${#fields.hasErrors('briefly')}" class="text-danger" th:errors="*{briefly}"></p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="content">Content for the event</label>
+                    <input
+                            type="text"
+                            class="form-control"
+                            id="content"
+                            name="content"
+                            th:field="*{content}"
+                            placeholder="Content">
+                    <p th:if="${#fields.hasErrors('content')}" class="text-danger" th:errors="*{content}"></p>
+                </div>
+                <div class="form-group">
+                    <label for="cost">Event Cost</label>
+                    <input
+                            type="number"
+                            class="form-control"
+                            id="cost"
+                            name="cost"
+                            th:field="*{cost}"
+                            placeholder="Cost" step="0.01">
+                    <p th:if="${#fields.hasErrors('cost')}" class="text-danger" th:errors="*{cost}"></p>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="photoUrl">Photo Url for the event</label>
+                    <input
+                            type="text"
+                            class="form-control"
+                            id="photoUrl"
+                            name="photoUrl"
+                            th:field="*{photoUrl}"
+                            placeholder="Photo Url">
+                    <p th:if="${#fields.hasErrors('photoUrl')}" class="text-danger" th:errors="*{photoUrl}"></p>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit changes</button>
+            </form>
+        </div>
+    </section>
+</main>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin-layout}">
+<body class="d-flex flex-column h-100">
+<main class="flex-shrink-0">
+
+    <section layout:fragment="body" class="py-5">
+        <div class="container px-5 my-5">
+            <div class="text-center mb-5">
+                <h1 class="fw-bolder">For Database</h1>
+                <p class="lead fw-normal text-muted mb-0">Event Management System</p>
+            </div>
+            <div class="row gx-5">
+                <div th:each="discount :${discount}" class="col-lg-4 mb-2">
+                    <div class="position-relative mb-3">
+                        <p class="h2">Id: <span th:text="${discount.id}"></span></p>
+                        <p class="h2">Type: <span th:text="${discount.type}"></span></p>
+                        <p class="h2">Amount(%): <span th:text="${discount.amount}"></span></p>
+                    </div>
+                    <a class="btn btn-primary" th:href="@{discounts/{discountId}/edit(discountId=${discount.id})}">Edit</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+</body>
+</html>
