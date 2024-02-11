@@ -15,6 +15,11 @@
                 <p class="lead fw-normal text-muted mb-0">Event Management System</p>
             </div>
             <div class="row gx-5">
+                <div>
+                    <form th:action="@{/events/search}" class="form-inline my-2 my-lg-0 mb-3">
+                        <input name="query" class="form-control mr-sm-2 mb-3" type="search" placeholder="Search Events" aria-label="Search">
+                    </form>
+                </div>
                 <div th:each="event :${event}" class="col-lg-4 mb-2">
                     <div class="position-relative mb-3">
                         <p th:text="${event.name}" class="h2"/>

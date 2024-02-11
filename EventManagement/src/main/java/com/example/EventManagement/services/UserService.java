@@ -10,7 +10,8 @@ import java.util.List;
 public interface UserService {
     List<UserDto> findAllUsers();
     UserDto findUserById(long userId);
-    Users saveUser(UserDto userDto);
+//    Users saveUser(UserDto userDto);
 
+    void saveUser(UserDto userDto);
     boolean loginUser(String name, String password);
 }
